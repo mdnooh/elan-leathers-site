@@ -40,3 +40,43 @@ main {
   max-width: 100%;
   height: auto;
 }
+body {
+  font-family: Arial;
+  background: #f9f1e7;
+  padding: 20px;
+}
+h1, h2 {
+  text-align: center;
+}
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 2px 2px 8px #ccc;
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+.price {
+  color: green;
+  font-weight: bold;
+}
+button {
+  padding: 8px 16px;
+  background-color: #6b4f3b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #4a3526;
+}
