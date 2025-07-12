@@ -107,3 +107,115 @@ function addToCart(name) {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Belts - Élan Leathers</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: Arial; background: #fdf3ec; margin: 20px; }
+    .products { display: flex; flex-wrap: wrap; gap: 20px; }
+    .card {
+      width: 250px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 10px;
+      text-align: center;
+    }
+    .card img { width: 100%; height: auto; border-radius: 10px; }
+    .card h3 { margin: 10px 0 5px; }
+    .card p { font-size: 14px; color: #555; }
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #5d4037;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background: #3e2723;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Our Leather Belts</h1>
+
+<div class="products" id="product-container">
+  <!-- Product cards will be loaded here -->
+</div>
+
+<script>
+const products = [
+  {
+    name: "Vintage Brown Belt",
+    image: "belt 1.jpg",
+    price: "₹799",
+    description: "Handcrafted full-grain leather belt with antique buckle."
+  },
+  {
+    name: "Classic Dark Belt",
+    image: "belt 3.jpg",
+    price: "₹849",
+    description: "Elegant everyday belt with rustic brass detailing."
+  },
+  {
+    name: "Tan Textured Belt",
+    image: "belt 4.jpg",
+    price: "₹899",
+    description: "Textured rich tan leather with strong vintage look."
+  },
+  {
+    name: "Charcoal Black Belt",
+    image: "belt 5.jpg",
+    price: "₹899",
+    description: "Premium matte black leather with deep brown undertone."
+  },
+  {
+    name: "Rustic Tan Belt",
+    image: "belt 6.jpg",
+    price: "₹949",
+    description: "Smooth finish tan leather with warm brass accents."
+  },
+  {
+    name: "Burnt Brown Belt",
+    image: "belt 7.jpg",
+    price: "₹999",
+    description: "Unique burnt brown gradient with brushed steel buckle."
+  },
+  {
+    name: "Stitched Black Belt",
+    image: "belt 10.jpg",
+    price: "₹999",
+    description: "Designer belt with visible cream stitching and metal polish."
+  }
+];
+
+const container = document.getElementById('product-container');
+products.forEach(product => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <strong>${product.price}</strong><br>
+      <button onclick="addToCart('${product.name}')">Add to Cart</button>
+    </div>
+  `;
+});
+
+function addToCart(name) {
+  alert(`${name} added to cart!`);
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(name);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+</script>
+
+</body>
+</html>
